@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bisnis - Webby Jasa</title>
+</head>
+
+<body>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+}
+
+nav{
+  background:#0f172a;
+  padding:15px 20px;
+  display:flex;
+  align-items:center;
+}
+
+nav h2{
+  margin:0;
+  color:#38bdf8;
+}
+
+.search-box{
+  flex:1;
+  text-align:center;
+}
+
+.search-box input{
+  width:60%;
+  padding:10px;
+  border-radius:25px;
+  border:none;
+  outline:none;
+}
+
+section{
+  margin:40px 20px;
+  background:#1e293b;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+
+section:hover{
+  transform:translateY(-5px);
+}
+
+section img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.content{
+  padding:20px;
+}
+
+h3{
+  color:#38bdf8;
+  margin-top:0;
+}
+
+footer{
+  background:#0f172a;
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+  color:#94a3b8;
+}
+</style>
+
+<nav>
+  <h2>Webby Jasa</h2>
+  <div class="search-box">
+    <input type="text" placeholder="Cari artikel bisnis...">
+  </div>
+</nav>
+
+<section>
+  <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d" alt="">
+  <div class="content">
+    <h3>Strategi Bisnis Online 2026</h3>
+    <p>Pelajari cara membangun bisnis online dari nol dengan strategi modern dan digital marketing terbaru.</p>
+  </div>
+</section>
+
+<section>
+  <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216" alt="">
+  <div class="content">
+    <h3>Branding untuk UMKM</h3>
+    <p>Bangun identitas brand yang kuat agar bisnis terlihat profesional dan dipercaya pelanggan.</p>
+  </div>
+</section>
+
+<section>
+  <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0" alt="">
+  <div class="content">
+    <h3>Meningkatkan Kepercayaan Pelanggan</h3>
+    <p>Website profesional dapat meningkatkan trust dan konversi penjualan.</p>
+  </div>
+</section>
+
+<section>
+  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="">
+  <div class="content">
+    <h3>Digitalisasi Usaha Lokal</h3>
+    <p>Transformasi digital membantu bisnis lokal berkembang lebih cepat.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Webby Jasa - All Rights Reserved
+</footer>
+
+<script>
+const input = document.querySelector("input");
+input.addEventListener("keyup", function(){
+  let filter = input.value.toLowerCase();
+  let sections = document.querySelectorAll("section");
+
+  sections.forEach(section=>{
+    let text = section.textContent.toLowerCase();
+    if(text.includes(filter)){
+      section.style.display="block";
+    }else{
+      section.style.display="none";
+    }
+  });
+});
+</script>
+
+</body>
+</html>

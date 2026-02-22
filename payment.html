@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Payment Page - Webby Jasa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar {
+    background-color: #1e3a8a;
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Toast Notification */
+  .toast {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #10b981; /* hijau */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 1000;
+  }
+
+  .toast.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .toast svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .tab-btn {
+    background: #1e40af;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .tab-btn.active {
+    background: #2563eb;
+  }
+
+  .tab-btn:hover {
+    background: #2563eb;
+  }
+
+  .card {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 320px;
+    margin-top: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+
+  .qr {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .gopay-number, .bank-number {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #00aa13;
+  }
+
+  .copy-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    background: #1e3a8a;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .copy-btn:hover {
+    background: #2563eb;
+  }
+
+  .column-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+    gap: 8px;
+  }
+
+  .wallet-icon {
+    width: 24px;
+    height: 24px;
+    fill: black;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24">
+    <path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Berhasil disalin!
+</div>
+
+<div class="navbar">Payment Page</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('ewallet', this)">E-Wallet</button>
+  <button class="tab-btn" onclick="showTab('bank', this)">Bank 🏦</button>
+</div>
+
+<!-- E-Wallet Section -->
+<div id="ewallet" class="tab-content">
+  <div class="card">
+    <div class="column-header">
+      <svg class="wallet-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M2 6h20v12H2z" stroke="black" stroke-width="2" fill="none"/>
+        <path d="M6 6v12" stroke="black" stroke-width="2"/>
+        <circle cx="18" cy="12" r="2" fill="black"/>
+      </svg>
+      E-Wallet
+    </div>
+    <h2>Scan QRIS GoPay</h2>
+    <img class="qr" src="qris.jpg" alt="QRIS GoPay">
+    <div class="gopay-number" id="gopay-number">087894940282</div>
+    <button class="copy-btn" onclick="copyText('gopay-number')">Salin Nomor</button>
+    <p>Atas Nama: Julvy Aditya</p>
+  </div>
+</div>
+
+<!-- Bank Section -->
+<div id="bank" class="tab-content" style="display:none;">
+  <div class="card">
+    <div class="column-header">🏦 Bank</div>
+    <h2>Transfer Bank</h2>
+    <p>Bank Jago</p>
+    <div class="bank-number" id="bank-number">106718369232</div>
+    <button class="copy-btn" onclick="copyText('bank-number')">Salin Nomor</button>
+    <p>Atas Nama: Julvy Aditya</p>
+  </div>
+</div>
+
+<script>
+function showTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+  document.getElementById(tabId).style.display = 'block';
+
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function copyText(elementId) {
+  const text = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(text);
+  showToast();
+}
+
+function showToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000); // muncul 2 detik
+}
+</script>
+
+</body>
+</html>

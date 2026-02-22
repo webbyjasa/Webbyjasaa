@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Kami - Webby Jasa</title>
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+<style>
+  /* ============ RESET ============ */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#f9fbfd;
+  color:#333;
+  line-height:1.6;
+}
+
+/* ============ NAVBAR ============ */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 8%;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  color:#1ea7e1;
+}
+
+/* MENU DESKTOP */
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+}
+
+.nav-links a:hover{
+  color:#1ea7e1;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ============ BANNER ============ */
+.banner{
+  width:100%;
+  height:260px;
+  background:url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200") center/cover no-repeat;
+}
+
+/* ============ ABOUT ============ */
+.about{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 8%;
+}
+
+.about h2{
+  color:#1ea7e1;
+  margin-bottom:20px;
+}
+
+.about p{
+  margin-bottom:16px;
+}
+
+/* ============ TABLET ============ */
+@media(max-width:1024px){
+  .about{
+    padding:50px 6%;
+  }
+}
+
+/* ============ MOBILE MENU ============ */
+@media(max-width:768px){
+
+  .hamburger{
+    display:block;
+    z-index:1101;
+  }
+
+  /* panel menu */
+  .nav-links{
+    position:fixed;
+    top:80px;          /* mulai di bawah navbar */
+    right:-100%;
+    width:55%;         /* setengah layar */
+    height:70vh;       /* tidak full */
+    background:#e9e9e9;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;  /* rata kanan */
+    justify-content:flex-start;
+
+    padding:30px 25px;
+    gap:20px;
+
+    box-shadow:-5px 0 15px rgba(0,0,0,0.15);
+    transition:0.35s ease;
+    border-radius:12px 0 0 12px;
+  }
+
+  .nav-links.show{
+    right:0;
+  }
+
+  .nav-links a{
+    font-size:18px;
+    color:#444;
+    font-weight:500;
+  }
+
+  .banner{
+    height:220px;
+  }
+
+  .about{
+    padding:40px 6%;
+  }
+}
+
+.footer {
+  background: #0b2239;
+  color: #fff;
+  padding-top: 50px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-col h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-col a {
+  display: block;
+  color: #cfd8e3;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  color: #4cc9f0;
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 40px;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+}
+
+.footer-brand img {
+  width: 45px;
+}
+
+.footer-brand p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #cfd8e3;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px){
+  .footer-container{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width: 500px){
+  .footer-container{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand{
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">Webby Jasa</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="fitur.html">Fitur</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="About.html" class="active">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </nav>
+</header>
+
+<!-- Banner Foto -->
+<section class="banner"></section>
+
+<!-- Tentang Kami -->
+<section class="about">
+  <h2>Tentang Kami</h2>
+
+  <p>
+    Webby Jasa hadir sebagai solusi pembuatan website profesional untuk membantu bisnis berkembang di era digital. Kami memahami bahwa kehadiran online yang kuat merupakan kunci utama dalam membangun kepercayaan dan meningkatkan penjualan.
+  </p>
+
+  <p>
+    Dengan menggabungkan desain modern, teknologi terbaru, dan performa yang cepat, kami menciptakan website yang tidak hanya menarik secara visual tetapi juga optimal untuk pengalaman pengguna.
+  </p>
+
+  <p>
+    Setiap website yang kami bangun dirancang agar mobile friendly, responsif di berbagai perangkat, serta mudah diakses oleh pelanggan kapan saja dan di mana saja.
+  </p>
+
+  <p>
+    Kami berkomitmen memberikan layanan terbaik mulai dari konsultasi, proses desain, pengembangan, hingga dukungan setelah website selesai dibuat.
+  </p>
+
+  <p>
+    Kepercayaan klien adalah prioritas utama kami. Oleh karena itu, Webby Jasa terus berinovasi untuk menghadirkan solusi digital yang efektif, efisien, dan mampu memberikan dampak nyata bagi pertumbuhan bisnis Anda.
+  </p>
+
+</section>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Layanan Webby</h3>
+      <a href="#">Website Gratis</a>
+      <a href="#">Paket Website</a>
+      <a href="#">Desain Website</a>
+      <a href="#">Google Workspace</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Support</h3>
+      <a href="#">Panduan Membuat Website</a>
+      <a href="#">Konfirmasi Pembayaran</a>
+      <a href="#">Pembayaran Online</a>
+      <a href="#">Kebijakan Privasi</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Siapa Kami?</h3>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Hubungi Kami</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Afiliasi</h3>
+      <a href="#">Clicknext Co., Ltd.</a>
+      <a href="#">SMS Marketing Service</a>
+      <a href="#">Broadcasting Service</a>
+      <a href="#">VPS Hosting Service</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-brand">
+      <img src="logo.webp" alt="logo">
+      <div>
+        <strong>Webby Jasa</strong>
+        <p>Bisnis Jasa Pengenbangan Web</p>
+        <p>+62 889-5204-312</p>
+        <p>Jam Operasional : 09.00 - 18.00</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

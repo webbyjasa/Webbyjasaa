@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Webby Jasa</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+
+
+
+<body>
+  
+  <nav class="navbar">
+  <div class="logo">Webby Jasa</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="fitur.html">Fitur</a></li>
+    <li><a href="Blog.html">Blog</a></li>
+    <li><a href="About.html">Tentang</a></li>
+    <li><a href="kontak.html">Kontak</a></li>
+  </ul>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</nav>
+
+<section class="blog-hero">
+  <div class="blog-hero-content">
+    <h1>The Blog</h1>
+    <p>
+      Tips bisnis, strategi digital, dan inspirasi untuk membantu
+      website & bisnis Anda berkembang.
+    </p>
+  </div>
+</section>
+  
+  
+<section class="blog-filter">
+  <div class="categories">
+  <a href="bisnis.html">Bisnis</a>
+  <a href="website.html">Tips Website</a>
+  <a href="inspirasi.html">Inspirasi</a>
+  <a href="marketing.html">Marketing</a>
+</div>
+
+  <input type="text" placeholder="Cari artikel..." />
+</section>
+
+<section class="blog-container">
+
+  <div class="blog-card">
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80">
+    <h3>Meningkatkan Kepercayaan Pelanggan dengan Website Profesional</h3>
+    <p>Website profesional membantu meningkatkan kredibilitas bisnis Anda.</p>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80">
+    <h3>Mengapa Bisnis Anda Butuh Website di 2026</h3>
+    <p>Website adalah aset digital penting untuk perkembangan bisnis.</p>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=800&q=80">
+    <h3>Cara Membuat Toko Online yang Mudah Digunakan</h3>
+    <p>Tingkatkan penjualan dengan sistem e-commerce yang user friendly.</p>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80">
+    <h3>Tips Desain Website Agar Terlihat Premium</h3>
+    <p>Gunakan layout modern dan warna konsisten agar terlihat profesional.</p>
+  </div>
+  
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Layanan Webby</h3>
+      <a href="#">Website Gratis</a>
+      <a href="#">Paket Website</a>
+      <a href="#">Desain Website</a>
+      <a href="#">Google Workspace</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Support</h3>
+      <a href="#">Panduan Membuat Website</a>
+      <a href="#">Konfirmasi Pembayaran</a>
+      <a href="#">Pembayaran Online</a>
+      <a href="#">Kebijakan Privasi</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Siapa Kami?</h3>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Hubungi Kami</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Afiliasi</h3>
+      <a href="#">Clicknext Co., Ltd.</a>
+      <a href="#">SMS Marketing Service</a>
+      <a href="#">Broadcasting Service</a>
+      <a href="#">VPS Hosting Service</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-brand">
+      <img src="logo.webp" alt="logo">
+      <div>
+        <strong>Webby Jasa</strong>
+        <p>Bisnis Jasa Pengenbangan Web</p>
+        <p>+62 889-5204-312</p>
+        <p>Jam Operasional : 09.00 - 18.00</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</section>
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
