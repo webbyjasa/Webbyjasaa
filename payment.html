@@ -1,217 +1,363 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Payment Page - Webby Jasa</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #ffffff;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Page</title>
 
-  .navbar {
-    background-color: #1e3a8a;
-    width: 100%;
-    padding: 15px 20px;
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    position: relative;
-    z-index: 10;
-  }
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-  /* Toast Notification */
-  .toast {
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #10b981; /* hijau */
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s;
-    z-index: 1000;
-  }
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  .toast.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  <style>
 
-  .toast svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
-  }
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
-  .tabs {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
-  }
+    body{
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
 
-  .tab-btn {
-    background: #1e40af;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
-  }
+    .container{
+      width:100%;
+      max-width:430px;
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    }
 
-  .tab-btn.active {
-    background: #2563eb;
-  }
+    .header{
+      background:#21409A;
+      color:white;
+      text-align:center;
+      padding:22px;
+      font-size:30px;
+      font-weight:bold;
+    }
 
-  .tab-btn:hover {
-    background: #2563eb;
-  }
+    .content{
+      padding:25px;
+    }
 
-  .card {
-    background: #f9f9f9;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    width: 320px;
-    margin-top: 40px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  }
+    .title{
+      text-align:center;
+      font-size:24px;
+      font-weight:bold;
+      margin-bottom:20px;
+      color:#222;
+    }
 
-  .qr {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-  }
+    .select-box{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:2px solid #ddd;
+      outline:none;
+      font-size:16px;
+      margin-bottom:25px;
+      cursor:pointer;
+    }
 
-  .gopay-number, .bank-number {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #00aa13;
-  }
+    .payment-card{
+      display:none;
+      background:#fafafa;
+      border-radius:18px;
+      padding:25px;
+      text-align:center;
+      animation:fade .3s ease;
+    }
 
-  .copy-btn {
-    margin-top: 15px;
-    padding: 10px 15px;
-    border: none;
-    background: #1e3a8a;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
 
-  .copy-btn:hover {
-    background: #2563eb;
-  }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
 
-  .column-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 15px;
-    gap: 8px;
-  }
+    .logo{
+      width:120px;
+      height:auto;
+      object-fit:contain;
+      margin-bottom:20px;
+    }
 
-  .wallet-icon {
-    width: 24px;
-    height: 24px;
-    fill: black;
-  }
+    .bank-name{
+      font-size:28px;
+      font-weight:bold;
+      margin-bottom:15px;
+      color:#222;
+    }
 
-</style>
+    .rekening{
+      font-size:24px;
+      font-weight:bold;
+      color:#16a34a;
+      margin-bottom:20px;
+      word-break:break-all;
+    }
+
+    .copy-btn{
+      background:#21409A;
+      color:white;
+      border:none;
+      padding:14px 20px;
+      border-radius:12px;
+      font-size:16px;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    .copy-btn:hover{
+      background:#182f73;
+    }
+
+    .copy-btn i{
+      margin-right:8px;
+    }
+
+    .atasnama{
+      margin-top:20px;
+      font-size:18px;
+      color:#444;
+      font-weight:bold;
+    }
+
+    .qris-img{
+      width:100%;
+      max-width:250px;
+      border-radius:12px;
+      margin-bottom:20px;
+      border:4px solid white;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .wa-btn{
+  width:100%;
+  margin-top:25px;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:15px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.wa-btn:hover{
+  background:#1ebe5d;
+}
+
+.wa-btn i{
+  font-size:22px;
+}
+
+  </style>
 </head>
 <body>
 
-<!-- Toast -->
-<div class="toast" id="toast">
-  <svg viewBox="0 0 24 24">
-    <path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  Berhasil disalin!
-</div>
+  <div class="container">
 
-<div class="navbar">Payment Page</div>
-
-<!-- Tabs -->
-<div class="tabs">
-  <button class="tab-btn active" onclick="showTab('ewallet', this)">E-Wallet</button>
-  <button class="tab-btn" onclick="showTab('bank', this)">Bank 🏦</button>
-</div>
-
-<!-- E-Wallet Section -->
-<div id="ewallet" class="tab-content">
-  <div class="card">
-    <div class="column-header">
-      <svg class="wallet-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M2 6h20v12H2z" stroke="black" stroke-width="2" fill="none"/>
-        <path d="M6 6v12" stroke="black" stroke-width="2"/>
-        <circle cx="18" cy="12" r="2" fill="black"/>
-      </svg>
-      E-Wallet
+    <div class="header">
+      Payment Page
     </div>
-    <h2>Scan QRIS GoPay</h2>
-    <img class="qr" src="qris.jpg" alt="QRIS GoPay">
-    <div class="gopay-number" id="gopay-number">087894940282</div>
-    <button class="copy-btn" onclick="copyText('gopay-number')">Salin Nomor</button>
-    <p>Atas Nama: Julvy Aditya</p>
+
+    <div class="content">
+
+      <div class="title">
+        Pilih Payment
+      </div>
+
+      <select class="select-box" id="paymentSelect">
+        <option value="">-- Pilih Payment --</option>
+        <option value="seabank">SeaBank</option>
+        <option value="gopay">GoPay</option>
+        <option value="bca">BCA</option>
+        <option value="qris">QRIS</option>
+      </select>
+
+      <!-- SEABANK -->
+      <div class="payment-card" id="seabankCard">
+
+        <img
+        src="https://iconlogovector.com/uploads/images/2024/03/lg-65e38a526d27d-SeaBank.webp"
+        class="logo">
+
+        <div class="bank-name">
+          SeaBank
+        </div>
+
+        <div class="rekening" id="seaNumber">
+          901748272940
+        </div>
+
+        <button class="copy-btn" onclick="copyText('seaNumber')">
+          <i class="fa-regular fa-copy"></i>
+          Salin Nomor
+        </button>
+
+        <div class="atasnama">
+          Atas Nama : Julvy Aditya
+        </div>
+
+      </div>
+
+      <!-- GOPAY -->
+      <div class="payment-card" id="gopayCard">
+
+        <img
+        src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg"
+        class="logo">
+
+        <div class="bank-name">
+          GoPay
+        </div>
+
+        <div class="rekening" id="gopayNumber">
+          087894940282
+        </div>
+
+        <button class="copy-btn" onclick="copyText('gopayNumber')">
+          <i class="fa-regular fa-copy"></i>
+          Salin Nomor
+        </button>
+
+        <div class="atasnama">
+          Atas Nama : Julvy Aditya
+        </div>
+
+      </div>
+
+      <!-- BCA -->
+      <div class="payment-card" id="bcaCard">
+
+        <img
+        src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg"
+        class="logo">
+
+        <div class="bank-name">
+          BCA
+        </div>
+
+        <div class="rekening" id="bcaNumber">
+          -
+        </div>
+
+        <button class="copy-btn" onclick="copyText('bcaNumber')">
+          <i class="fa-regular fa-copy"></i>
+          Salin Nomor
+        </button>
+
+        <div class="atasnama">
+          Atas Nama : Julvy Aditya
+        </div>
+
+      </div>
+
+      <!-- QRIS -->
+      <div class="payment-card" id="qrisCard">
+
+        <!-- GANTI FOTO QRIS DI SINI -->
+        <img
+        src="qris.jpg"
+        class="qris-img">
+
+        <div class="bank-name">
+          QRIS Payment
+        </div>
+
+        <div class="atasnama">
+          Scan QRIS Untuk Pembayaran
+        </div>
+
+      </div>
+      
+             <!-- BUTTON KONFIRMASI -->
+<a 
+href="https://wa.me/628895204312?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20paket%20website"
+target="_blank"
+class="wa-btn"
+>
+  <i class="fa-brands fa-whatsapp"></i>
+  Konfirmasi Pembayaran Melalui WhatsApp
+  dan sertakan bukti Pembayaran
+</a>
+
+    </div>
   </div>
-</div>
 
-<!-- Bank Section -->
-<div id="bank" class="tab-content" style="display:none;">
-  <div class="card">
-    <div class="column-header">🏦 Bank</div>
-    <h2>Transfer Bank</h2>
-    <p>Bank Jago</p>
-    <div class="bank-number" id="bank-number">106718369232</div>
-    <button class="copy-btn" onclick="copyText('bank-number')">Salin Nomor</button>
-    <p>Atas Nama: Julvy Aditya</p>
-  </div>
-</div>
+  <script>
 
-<script>
-function showTab(tabId, btn) {
-  document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
-  document.getElementById(tabId).style.display = 'block';
+    const select = document.getElementById("paymentSelect");
 
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
+    const seabank = document.getElementById("seabankCard");
+    const gopay = document.getElementById("gopayCard");
+    const bca = document.getElementById("bcaCard");
+    const qris = document.getElementById("qrisCard");
 
-function copyText(elementId) {
-  const text = document.getElementById(elementId).innerText;
-  navigator.clipboard.writeText(text);
-  showToast();
-}
+    select.addEventListener("change", function(){
 
-function showToast() {
-  const toast = document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 2000); // muncul 2 detik
-}
-</script>
+      seabank.style.display = "none";
+      gopay.style.display = "none";
+      bca.style.display = "none";
+      qris.style.display = "none";
+
+      if(this.value === "seabank"){
+        seabank.style.display = "block";
+      }
+
+      else if(this.value === "gopay"){
+        gopay.style.display = "block";
+      }
+
+      else if(this.value === "bca"){
+        bca.style.display = "block";
+      }
+
+      else if(this.value === "qris"){
+        qris.style.display = "block";
+      }
+
+    });
+
+    function copyText(id){
+
+      const text = document.getElementById(id).innerText;
+
+      navigator.clipboard.writeText(text);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: 'Nomor berhasil disalin',
+        confirmButtonColor: '#21409A'
+      });
+
+    }
+
+  </script>
 
 </body>
-</html>
+          </html>
