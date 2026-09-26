@@ -878,164 +878,517 @@
 
 
     /* =========================
-       RESPONSIVE
-    ========================= */
+/* =========================
+   RESPONSIVE TABLET
+========================= */
 
-    @media (max-width: 900px) {
+@media (max-width: 900px) {
 
-      .welcome {
-        grid-template-columns: 1fr;
+  .welcome {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
 
-        gap: 50px;
+  .welcome-text p {
+    margin: 0 auto;
+  }
 
-        text-align: center;
-      }
+  .welcome-image img {
+    max-width: 600px;
+  }
 
-      .welcome-text p {
-        margin: auto;
-      }
+  .price-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-      .footer-container {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
+  .popular {
+    transform: none;
+  }
 
-    }
+  .popular:hover {
+    transform: translateY(-8px);
+  }
 
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    @media (max-width: 700px) {
-
-      nav {
-        padding: 0 20px;
-      }
-
-      .nav-links {
-        position: absolute;
-
-        top: 72px;
-
-        left: 0;
-
-        width: 100%;
-
-        display: none;
-
-        flex-direction: column;
-
-        gap: 0;
-
-        background: #ffffff;
-
-        padding: 10px 0;
-
-        box-shadow:
-          0 10px 20px
-          rgba(0,0,0,0.08);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links li {
-        padding: 13px 0;
-
-        text-align: center;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .hero {
-        min-height: 540px;
-
-        padding: 80px 20px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero h2 {
-        font-size: 21px;
-      }
-
-      .welcome {
-        padding: 70px 20px;
-      }
-
-      .pricing,
-      .portfolio {
-        padding: 70px 20px;
-      }
-
-      .pricing-header h2,
-      .portfolio-header h2 {
-        font-size: 28px;
-      }
-
-      .price-container {
-        grid-template-columns: 1fr;
-
-        max-width: 400px;
-      }
-
-      .popular {
-        transform: none;
-      }
-
-      .popular:hover {
-        transform: translateY(-8px);
-      }
-
-      .slider-btn {
-        width: 38px;
-        height: 38px;
-      }
-
-      .slider-btn.prev {
-        left: 10px;
-      }
-
-      .slider-btn.next {
-        right: 10px;
-      }
-
-      .footer {
-        padding-top: 50px;
-      }
-
-    }
+}
 
 
-    @media (max-width: 500px) {
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
 
-      .footer-container {
-        grid-template-columns: 1fr;
+@media (max-width: 700px) {
 
-        text-align: center;
-      }
+  /* NAVBAR */
 
-      .footer-brand {
-        justify-content: center;
+  nav {
+    height: 65px;
+    padding: 0 20px;
+  }
 
-        text-align: center;
-      }
+  .logo {
+    font-size: 19px;
+  }
 
-      .footer-brand img {
-        display: none;
-      }
+  .menu-toggle {
+    display: flex;
+  }
 
-      .whatsapp {
-        width: 50px;
-        height: 50px;
+  .nav-links {
+    position: absolute;
 
-        right: 15px;
-        bottom: 15px;
-      }
+    top: 65px;
+    left: 0;
 
-    }
+    width: 100%;
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    padding: 8px 0;
+
+    background: #ffffff;
+
+    box-shadow:
+      0 10px 25px rgba(0,0,0,0.10);
+
+    border-top: 1px solid #eeeeee;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+
+    text-align: center;
+
+    padding: 14px 0;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 520px;
+
+    padding: 75px 20px;
+
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+
+    line-height: 1.1;
+  }
+
+  .hero h1::after {
+    width: 55px;
+
+    height: 3px;
+
+    margin-top: 15px;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+
+    line-height: 1.4;
+
+    margin-top: 5px;
+
+    margin-bottom: 18px;
+  }
+
+  .hero p {
+    max-width: 450px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+  .cta {
+    margin-top: 25px;
+  }
+
+  .cta button {
+    padding: 13px 25px;
+
+    font-size: 13px;
+  }
+
+
+  /* WELCOME */
+
+  .welcome {
+    padding: 70px 20px;
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    text-align: center;
+  }
+
+  .welcome-text span {
+    font-size: 11px;
+  }
+
+  .welcome-text h1 {
+    font-size: 30px;
+
+    line-height: 1.25;
+
+    margin: 10px 0 15px;
+  }
+
+  .welcome-text p {
+    max-width: 450px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+  .welcome-image {
+    width: 100%;
+  }
+
+  .welcome-image::before {
+    transform: translate(7px, 7px);
+
+    border-radius: 17px;
+  }
+
+  .welcome-image img {
+    width: 100%;
+
+    max-width: 420px;
+
+    border-radius: 17px;
+  }
+
+
+  /* PRICING */
+
+  .pricing {
+    padding: 70px 20px;
+  }
+
+  .pricing-header {
+    margin-bottom: 40px;
+  }
+
+  .pricing-header span {
+    font-size: 11px;
+  }
+
+  .pricing-header h2 {
+    font-size: 27px;
+
+    line-height: 1.3;
+  }
+
+  .pricing-header p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+  .price-container {
+    grid-template-columns: 1fr;
+
+    width: 100%;
+
+    max-width: 390px;
+
+    margin: auto;
+
+    gap: 18px;
+  }
+
+  .price-card {
+    width: 100%;
+
+    padding: 28px 22px;
+
+    border-radius: 16px;
+  }
+
+  .price-card h3 {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 26px;
+
+    margin: 13px 0 18px;
+  }
+
+  .price-card li {
+    font-size: 12px;
+
+    padding: 7px 0;
+  }
+
+  .price-card button {
+    padding: 12px 20px;
+
+    font-size: 12px;
+  }
+
+  .popular {
+    transform: none;
+
+    margin-top: 8px;
+
+    margin-bottom: 8px;
+  }
+
+  .popular:hover {
+    transform: translateY(-6px);
+  }
+
+
+  /* PORTFOLIO */
+
+  .portfolio {
+    padding: 70px 15px;
+  }
+
+  .portfolio-header {
+    padding: 0 5px;
+
+    margin-bottom: 30px;
+  }
+
+  .portfolio-header span {
+    font-size: 11px;
+  }
+
+  .portfolio-header h2 {
+    font-size: 28px;
+
+    line-height: 1.3;
+  }
+
+  .portfolio-header p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+  .slider-wrapper {
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: auto;
+  }
+
+  .slider {
+    width: 100%;
+
+    border-radius: 15px;
+  }
+
+  .slide img {
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    object-fit: cover;
+
+    border-radius: 0;
+  }
+
+  .slider-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .slider-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .slider-btn.prev {
+    left: 9px;
+  }
+
+  .slider-btn.next {
+    right: 9px;
+  }
+
+  .slider-dots {
+    margin-top: 15px;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    padding-top: 50px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    text-align: center;
+  }
+
+  .footer-col h3 {
+    font-size: 15px;
+
+    margin-bottom: 14px;
+  }
+
+  .footer-col a {
+    font-size: 12px;
+
+    margin-bottom: 9px;
+  }
+
+  .footer-col a:hover {
+    padding-left: 0;
+  }
+
+  .footer-bottom {
+    margin-top: 35px;
+
+    padding: 25px 20px;
+  }
+
+  .footer-brand {
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .footer-brand img {
+    display: none;
+  }
+
+
+  /* WHATSAPP */
+
+  .whatsapp {
+    width: 50px;
+    height: 50px;
+
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .whatsapp svg {
+    width: 25px;
+    height: 25px;
+  }
+
+}
+
+
+/* =========================
+   EXTRA SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+  .hero {
+    min-height: 500px;
+
+    padding: 65px 18px;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+  }
+
+  .hero p {
+    font-size: 12px;
+  }
+
+  .cta button {
+    padding: 12px 22px;
+
+    font-size: 12px;
+  }
+
+
+  .welcome {
+    padding: 60px 18px;
+  }
+
+  .welcome-text h1 {
+    font-size: 27px;
+  }
+
+  .welcome-text p {
+    font-size: 12px;
+  }
+
+
+  .pricing {
+    padding: 60px 15px;
+  }
+
+  .pricing-header h2 {
+    font-size: 25px;
+  }
+
+
+  .portfolio {
+    padding: 60px 10px;
+  }
+
+  .portfolio-header h2 {
+    font-size: 25px;
+  }
+
+  .portfolio-header p {
+    font-size: 12px;
+  }
+
+
+  .slider-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .slider-btn.prev {
+    left: 7px;
+  }
+
+  .slider-btn.next {
+    right: 7px;
+  }
+
+
+  .price-card {
+    padding: 25px 18px;
+  }
+
+}
 
   </style>
 </head>
