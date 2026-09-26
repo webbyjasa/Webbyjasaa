@@ -1,261 +1,1786 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webby Jasa</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Webby Jasa | Website Profesional & Modern</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #071522;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      width: 100%;
+      height: 72px;
+      padding: 0 7%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: rgba(255, 255, 255, 0.97);
+
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 700;
+      color: #008dcc;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #222;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #009edb;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+      color: #111;
+    }
+
+    .menu-toggle svg {
+      width: 25px;
+      height: 25px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 620px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding: 100px 20px;
+
+      background:
+        linear-gradient(
+          rgba(7, 21, 34, 0.82),
+          rgba(7, 21, 34, 0.92)
+        ),
+        url('halaman.jpg');
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      width: 500px;
+      height: 500px;
+
+      background: rgba(76, 201, 240, 0.08);
+
+      border-radius: 50%;
+
+      filter: blur(20px);
+    }
+
+    .hero h1 {
+      position: relative;
+
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.1;
+
+      color: #ffffff;
+
+      margin-bottom: 10px;
+    }
+
+    .hero h1::after {
+      content: "";
+      display: block;
+
+      width: 70px;
+      height: 4px;
+
+      margin: 18px auto 0;
+
+      border-radius: 10px;
+
+      background: linear-gradient(
+        90deg,
+        #00c6ff,
+        #4cc9f0
+      );
+    }
+
+    .hero h2 {
+      position: relative;
+
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 500;
+
+      color: #4cc9f0;
+
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      position: relative;
+
+      max-width: 650px;
+
+      color: #b8c6d2;
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+    .cta {
+      position: relative;
+      margin-top: 32px;
+    }
+
+    .cta a {
+      display: inline-flex;
+    }
+
+    .cta button {
+      border: none;
+
+      padding: 14px 30px;
+
+      border-radius: 30px;
+
+      background: linear-gradient(
+        135deg,
+        #00c6ff,
+        #0072ff
+      );
+
+      color: #ffffff;
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+
+      box-shadow:
+        0 10px 30px rgba(0, 114, 255, 0.25);
+    }
+
+    .cta button:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 15px 35px rgba(0, 114, 255, 0.35);
+    }
+
+
+    /* =========================
+       WELCOME
+    ========================= */
+
+    .welcome {
+      padding: 100px 7%;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      align-items: center;
+
+      gap: 70px;
+
+      background: #091b2a;
+    }
+
+    .welcome-text span {
+      color: #4cc9f0;
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .welcome-text h1 {
+      font-size: clamp(32px, 4vw, 45px);
+
+      line-height: 1.2;
+
+      margin: 12px 0 18px;
+    }
+
+    .welcome-text h1 span {
+      color: #4cc9f0;
+
+      font-size: inherit;
+
+      letter-spacing: 0;
+
+      text-transform: none;
+    }
+
+    .welcome-text p {
+      max-width: 520px;
+
+      color: #9eafbe;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+    .welcome-image {
+      position: relative;
+    }
+
+    .welcome-image::before {
+      content: "";
+
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      border: 1px solid rgba(76, 201, 240, 0.2);
+
+      border-radius: 22px;
+
+      transform: translate(12px, 12px);
+
+      z-index: 0;
+    }
+
+    .welcome-image img {
+      position: relative;
+
+      width: 100%;
+      max-width: 520px;
+
+      display: block;
+
+      margin: auto;
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35);
+
+      z-index: 1;
+    }
+
+
+    /* =========================
+       PRICING
+    ========================= */
+
+    .pricing {
+      padding: 100px 7%;
+
+      background: #071522;
+
+      text-align: center;
+    }
+
+    .pricing-header {
+      max-width: 650px;
+
+      margin: 0 auto 50px;
+    }
+
+    .pricing-header span {
+      color: #4cc9f0;
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .pricing-header h2 {
+      font-size: 34px;
+
+      margin-top: 8px;
+    }
+
+    .pricing-header p {
+      color: #9eafbe;
+
+      font-size: 14px;
+
+      margin-top: 12px;
+    }
+
+    .price-container {
+      max-width: 1200px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+      gap: 20px;
+
+      align-items: stretch;
+    }
+
+    .price-card {
+      position: relative;
+
+      padding: 32px 25px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #102b40,
+          #0b2133
+        );
+
+      border: 1px solid rgba(255,255,255,0.07);
+
+      border-radius: 18px;
+
+      transition: 0.35s;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card:hover {
+      transform: translateY(-8px);
+
+      border-color:
+        rgba(76, 201, 240, 0.4);
+
+      box-shadow:
+        0 20px 45px rgba(0,0,0,0.25);
+    }
+
+    .price-card h3 {
+      font-size: 19px;
+
+      color: #ffffff;
+    }
+
+    .price {
+      font-size: 28px;
+
+      font-weight: 700;
+
+      color: #4cc9f0;
+
+      margin: 15px 0 20px;
+    }
+
+    .price-card ul {
+      list-style: none;
+
+      margin-bottom: 25px;
+
+      flex: 1;
+    }
+
+    .price-card li {
+      color: #aebdca;
+
+      font-size: 12px;
+
+      padding: 8px 0;
+
+      border-bottom:
+        1px solid rgba(255,255,255,0.05);
+    }
+
+    .price-card li:last-child {
+      border-bottom: none;
+    }
+
+    .price-card li::before {
+      content: "✓";
+
+      color: #4cc9f0;
+
+      font-weight: 700;
+
+      margin-right: 7px;
+    }
+
+    .price-card a {
+      display: block;
+    }
+
+    .price-card button {
+      width: 100%;
+
+      padding: 12px 20px;
+
+      border: 1px solid
+        rgba(76, 201, 240, 0.35);
+
+      border-radius: 30px;
+
+      background: transparent;
+
+      color: #4cc9f0;
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .price-card button:hover {
+      background: #009edb;
+
+      color: #ffffff;
+
+      border-color: #009edb;
+    }
+
+    .popular {
+      border-color: #4cc9f0;
+
+      box-shadow:
+        0 15px 45px rgba(76, 201, 240, 0.1);
+
+      transform: translateY(-8px);
+    }
+
+    .popular:hover {
+      transform: translateY(-13px);
+    }
+
+    .popular::before {
+      content: "POPULER";
+
+      position: absolute;
+
+      top: -12px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      padding: 5px 15px;
+
+      border-radius: 20px;
+
+      background: #4cc9f0;
+
+      color: #071522;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      letter-spacing: 1px;
+    }
+
+    .popular button {
+      background: #009edb;
+
+      border-color: #009edb;
+
+      color: #ffffff;
+    }
+
+
+    /* =========================
+       PORTFOLIO
+    ========================= */
+
+    .portfolio {
+      padding: 100px 7%;
+
+      background: #091b2a;
+
+      text-align: center;
+    }
+
+    .portfolio-header {
+      margin-bottom: 45px;
+    }
+
+    .portfolio-header span {
+      color: #4cc9f0;
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .portfolio-header h2 {
+      font-size: 34px;
+
+      margin-top: 8px;
+    }
+
+    .portfolio-header p {
+      max-width: 600px;
+
+      margin: 12px auto 0;
+
+      color: #9eafbe;
+
+      font-size: 14px;
+    }
+
+    .slider-wrapper {
+      max-width: 950px;
+
+      margin: auto;
+
+      position: relative;
+    }
+
+    .slider {
+      width: 100%;
+
+      overflow: hidden;
+
+      border-radius: 20px;
+
+      border: 1px solid
+        rgba(255,255,255,0.08);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.35);
+    }
+
+    .slides {
+      display: flex;
+
+      transition:
+        transform 0.6s
+        cubic-bezier(.77,0,.18,1);
+    }
+
+    .slide {
+      min-width: 100%;
+
+      flex-shrink: 0;
+    }
+
+    .slide img {
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+    .slider-btn {
+      position: absolute;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid
+        rgba(255,255,255,0.2);
+
+      border-radius: 50%;
+
+      background:
+        rgba(5,20,32,0.8);
+
+      color: #ffffff;
+
+      cursor: pointer;
+
+      z-index: 5;
+
+      transition: 0.3s;
+    }
+
+    .slider-btn:hover {
+      background: #009edb;
+
+      border-color: #009edb;
+    }
+
+    .slider-btn svg {
+      width: 20px;
+      height: 20px;
+
+      fill: none;
+
+      stroke: currentColor;
+
+      stroke-width: 2;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+    }
+
+    .slider-btn.prev {
+      left: 15px;
+    }
+
+    .slider-btn.next {
+      right: 15px;
+    }
+
+    .slider-dots {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 7px;
+
+      margin-top: 20px;
+    }
+
+    .slider-dots span {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #526575;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .slider-dots span.active {
+      width: 24px;
+
+      border-radius: 10px;
+
+      background: #4cc9f0;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      background: #05111d;
+
+      padding-top: 65px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+
+      margin: auto;
+
+      padding: 0 20px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 35px;
+    }
+
+    .footer-col h3 {
+      font-size: 15px;
+
+      margin-bottom: 18px;
+    }
+
+    .footer-col a {
+      display: block;
+
+      color: #8393a2;
+
+      font-size: 12px;
+
+      margin-bottom: 10px;
+
+      transition: 0.3s;
+    }
+
+    .footer-col a:hover {
+      color: #4cc9f0;
+
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+
+      margin: 50px auto 0;
+
+      padding: 25px 20px;
+
+      border-top:
+        1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+    }
+
+    .footer-brand img {
+      width: 45px;
+    }
+
+    .footer-brand strong {
+      font-size: 14px;
+    }
+
+    .footer-brand p {
+      color: #758696;
+
+      font-size: 11px;
+    }
+
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      width: 55px;
+      height: 55px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background: #25d366;
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.3);
+
+      z-index: 999;
+
+      transition: 0.3s;
+    }
+
+    .whatsapp:hover {
+      transform: translateY(-4px);
+    }
+
+    .whatsapp svg {
+      width: 28px;
+      height: 28px;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .welcome {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        text-align: center;
+      }
+
+      .welcome-text p {
+        margin: auto;
+      }
+
+      .footer-container {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        top: 72px;
+
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        background: #ffffff;
+
+        padding: 10px 0;
+
+        box-shadow:
+          0 10px 20px
+          rgba(0,0,0,0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        padding: 13px 0;
+
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero {
+        min-height: 540px;
+
+        padding: 80px 20px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero h2 {
+        font-size: 21px;
+      }
+
+      .welcome {
+        padding: 70px 20px;
+      }
+
+      .pricing,
+      .portfolio {
+        padding: 70px 20px;
+      }
+
+      .pricing-header h2,
+      .portfolio-header h2 {
+        font-size: 28px;
+      }
+
+      .price-container {
+        grid-template-columns: 1fr;
+
+        max-width: 400px;
+      }
+
+      .popular {
+        transform: none;
+      }
+
+      .popular:hover {
+        transform: translateY(-8px);
+      }
+
+      .slider-btn {
+        width: 38px;
+        height: 38px;
+      }
+
+      .slider-btn.prev {
+        left: 10px;
+      }
+
+      .slider-btn.next {
+        right: 10px;
+      }
+
+      .footer {
+        padding-top: 50px;
+      }
+
+    }
+
+
+    @media (max-width: 500px) {
+
+      .footer-container {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .footer-brand {
+        justify-content: center;
+
+        text-align: center;
+      }
+
+      .footer-brand img {
+        display: none;
+      }
+
+      .whatsapp {
+        width: 50px;
+        height: 50px;
+
+        right: 15px;
+        bottom: 15px;
+      }
+
+    }
+
+  </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="logo">Webby Jasa</div>
 
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Beranda</a></li>
-    <li><a href="fitur.html">Fitur</a></li>
-    <li><a href="Blog.html">Blog</a></li>
-    <li><a href="About.html">Tentang Kami</a></li>
-    <li><a href="kontak.html">Kontak</a></li>
-  </ul>
+  <!-- =========================
+       NAVBAR
+  ========================= -->
 
-  <div class="menu-toggle" id="menuToggle">
-    ☰
-  </div>
-</nav>
+  <nav>
+
+    <div class="logo">
+      Webby Jasa
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li>
+        <a href="index.html">
+          Beranda
+        </a>
+      </li>
+
+      <li>
+        <a href="fitur.html">
+          Fitur
+        </a>
+      </li>
+
+      <li>
+        <a href="Blog.html">
+          Blog
+        </a>
+      </li>
+
+      <li>
+        <a href="About.html">
+          Tentang Kami
+        </a>
+      </li>
+
+      <li>
+        <a href="kontak.html">
+          Kontak
+        </a>
+      </li>
+
+    </ul>
+
+    <div class="menu-toggle" id="menuToggle">
+
+      <svg viewBox="0 0 24 24">
+
+        <path d="M4 6h16"/>
+        <path d="M4 12h16"/>
+        <path d="M4 18h16"/>
+
+      </svg>
+
+    </div>
+
+  </nav>
 
 
+  <!-- =========================
+       HERO
+  ========================= -->
 
+  <section class="hero">
 
-<section class="hero">
-  <h1>Webby Jasa</h1>
-  <h2>Website Profesional & Modern</h2>
-  <p>
-    Tingkatkan bisnis Anda dengan website profesional,
-    mobile friendly, dan terintegrasi dengan pemasaran digital.
-  </p>
-  <div class="cta">
-    <a href="https://wa.me/628895204312" target="_blank">
-    <button >Konsultasi Sekarang</button>
-    </a>
-  </div>
-</section>
+    <h1>
+      Webby Jasa
+    </h1>
 
+    <h2>
+      Website Profesional & Modern
+    </h2>
 
-<section class="welcome">
-  <div class="welcome-text">
-    <h1>Welcome </h1>
     <p>
-      Kami membantu bisnis Anda berkembang dengan website profesional,
-      modern, dan mobile friendly.
+      Tingkatkan bisnis Anda dengan website profesional,
+      mobile friendly, dan terintegrasi dengan pemasaran digital.
     </p>
-  </div>
 
-  <div class="welcome-image">
-    <img src="foto.jpg">
-  </div>
-</section>
+    <div class="cta">
 
-<section class="pricing">
-  <h2>Paket Harga Website</h2>
+      <a
+        href="https://wa.me/628895204312"
+        target="_blank"
+      >
 
-  <div class="price-container">
+        <button>
+          Konsultasi Sekarang
+        </button>
 
-    <div class="price-card">
-      <h3>Basic</h3>
-      <p class="price">Rp 90K</p>
-      <ul>
-        <li>2 Halaman</li>
-        <li>Desain Responsif</li>
-        <li>Gratis Hosting 1 Bulan</li>
-      </ul>
-      <a href="payment.html" target="_blank">
-        <button>Beli Sekarang</button>
       </a>
+
     </div>
 
-    <div class="price-card">
-      <h3>Starter</h3>
-      <p class="price">Rp 500k</p>
-      <ul>
-        <li>4 Halaman</li>
-        <li>Mobile Friendly</li>
-        <li>SEO Dasar</li>
-      </ul>
-      <a href="payment.html" target="_blank">
-        <button>Beli Sekarang</button>
-      </a>
+  </section>
+
+
+  <!-- =========================
+       WELCOME
+  ========================= -->
+
+  <section class="welcome">
+
+    <div class="welcome-text">
+
+      <span>Tentang Webby Jasa</span>
+
+      <h1>
+        Bangun Kehadiran Digital
+        <span>yang Profesional</span>
+      </h1>
+
+      <p>
+        Kami membantu bisnis Anda berkembang dengan
+        website profesional, modern, responsif, dan
+        mobile friendly yang disesuaikan dengan
+        kebutuhan bisnis.
+      </p>
+
     </div>
 
-    <div class="price-card popular">
-      <h3>Business</h3>
-      <p class="price">Rp 900k</p>
-      <ul>
-        <li>5 Halaman</li>
-        <li>Desain Premium</li>
-        <li>SEO Optimization</li>
-      </ul>
-      <a href="payment.html" target="_blank">
-        <button>Beli Sekarang</button>
-      </a>
+
+    <div class="welcome-image">
+
+      <img
+        src="foto.jpg"
+        alt="Website Webby Jasa"
+      >
+
     </div>
 
-    <div class="price-card">
-      <h3>Professional</h3>
-      <p class="price">Rp 1.8 Juta</p>
-      <ul>
-        <li>10 Halaman</li>
-        <li>Speed Optimization</li>
-        <li>Support 1 Bulan</li>
-      </ul>
-      <a href="payment.html" target="_blank">
-        <button>Beli Sekarang</button>
-      </a>
+  </section>
+
+
+  <!-- =========================
+       PRICING
+  ========================= -->
+
+  <section class="pricing">
+
+    <div class="pricing-header">
+
+      <span>Paket Website</span>
+
+      <h2>
+        Pilih Paket Sesuai Kebutuhan
+      </h2>
+
+      <p>
+        Berbagai pilihan paket website untuk
+        membantu bisnis Anda berkembang secara digital.
+      </p>
+
     </div>
 
-    <div class="price-card">
-      <h3>Custom</h3>
-      <p class="price">Hubungi Kami</p>
-      <ul>
-        <li>Fitur Sesuai Kebutuhan</li>
-        <li>Desain Eksklusif</li>
-        <li>Support Prioritas</li>
-      </ul>
-      <a href="https://wa.me/628895204312" target="_blank">
-        <button>Beli Sekarang</button>
-      </a>
-    </div>
 
-  </div>
-</section>
+    <div class="price-container">
 
 
-<section class="portfolio">
-  <h2>Contoh Website</h2>
+      <div class="price-card">
 
-  <div class="slider-wrapper">
+        <h3>
+          Basic
+        </h3>
 
-    <button class="slider-btn prev" onclick="geserSlide(-1)">
-      ❮
-    </button>
+        <p class="price">
+          Rp 90K
+        </p>
 
-    <div class="slider">
+        <ul>
 
-      <div class="slide">
-        <img src="profile.jpg" alt="Contoh Website 1">
+          <li>
+            2 Halaman
+          </li>
+
+          <li>
+            Desain Responsif
+          </li>
+
+          <li>
+            Gratis Hosting 1 Bulan
+          </li>
+
+        </ul>
+
+        <a href="payment.html" target="_blank">
+
+          <button>
+            Beli Sekarang
+          </button>
+
+        </a>
+
       </div>
 
-      <div class="slide">
-        <img src="gambar.jpg" alt="Contoh Website 2">
+
+      <div class="price-card">
+
+        <h3>
+          Starter
+        </h3>
+
+        <p class="price">
+          Rp 500K
+        </p>
+
+        <ul>
+
+          <li>
+            4 Halaman
+          </li>
+
+          <li>
+            Mobile Friendly
+          </li>
+
+          <li>
+            SEO Dasar
+          </li>
+
+        </ul>
+
+        <a href="payment.html" target="_blank">
+
+          <button>
+            Beli Sekarang
+          </button>
+
+        </a>
+
       </div>
 
-      <div class="slide">
-        <img src="logo.jpg" alt="Contoh Website 3">
+
+      <div class="price-card popular">
+
+        <h3>
+          Business
+        </h3>
+
+        <p class="price">
+          Rp 900K
+        </p>
+
+        <ul>
+
+          <li>
+            5 Halaman
+          </li>
+
+          <li>
+            Desain Premium
+          </li>
+
+          <li>
+            SEO Optimization
+          </li>
+
+        </ul>
+
+        <a href="payment.html" target="_blank">
+
+          <button>
+            Beli Sekarang
+          </button>
+
+        </a>
+
+      </div>
+
+
+      <div class="price-card">
+
+        <h3>
+          Professional
+        </h3>
+
+        <p class="price">
+          Rp 1.8 Juta
+        </p>
+
+        <ul>
+
+          <li>
+            10 Halaman
+          </li>
+
+          <li>
+            Speed Optimization
+          </li>
+
+          <li>
+            Support 1 Bulan
+          </li>
+
+        </ul>
+
+        <a href="payment.html" target="_blank">
+
+          <button>
+            Beli Sekarang
+          </button>
+
+        </a>
+
+      </div>
+
+
+      <div class="price-card">
+
+        <h3>
+          Custom
+        </h3>
+
+        <p class="price">
+          Hubungi Kami
+        </p>
+
+        <ul>
+
+          <li>
+            Fitur Sesuai Kebutuhan
+          </li>
+
+          <li>
+            Desain Eksklusif
+          </li>
+
+          <li>
+            Support Prioritas
+          </li>
+
+        </ul>
+
+        <a
+          href="https://wa.me/628895204312"
+          target="_blank"
+        >
+
+          <button>
+            Konsultasi
+          </button>
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PORTFOLIO
+  ========================= -->
+
+  <section class="portfolio">
+
+    <div class="portfolio-header">
+
+      <span>Portfolio</span>
+
+      <h2>
+        Contoh Website
+      </h2>
+
+      <p>
+        Beberapa contoh tampilan website yang
+        dapat kami kembangkan untuk kebutuhan bisnis Anda.
+      </p>
+
+    </div>
+
+
+    <div class="slider-wrapper">
+
+      <button
+        class="slider-btn prev"
+        onclick="geserSlide(-1)"
+        aria-label="Website sebelumnya"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="M15 18l-6-6 6-6"/>
+
+        </svg>
+
+      </button>
+
+
+      <div class="slider">
+
+        <div class="slides">
+
+          <div class="slide">
+
+            <img
+              src="profile.jpg"
+              alt="Contoh Website 1"
+            >
+
+          </div>
+
+
+          <div class="slide">
+
+            <img
+              src="gambar.jpg"
+              alt="Contoh Website 2"
+            >
+
+          </div>
+
+
+          <div class="slide">
+
+            <img
+              src="logo.jpg"
+              alt="Contoh Website 3"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="slider-btn next"
+        onclick="geserSlide(1)"
+        aria-label="Website berikutnya"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="M9 18l6-6-6-6"/>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+
+    <div class="slider-dots"></div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer class="footer">
+
+    <div class="footer-container">
+
+
+      <div class="footer-col">
+
+        <h3>
+          Layanan Webby
+        </h3>
+
+        <a href="#">
+          Website Gratis
+        </a>
+
+        <a href="#">
+          Paket Website
+        </a>
+
+        <a href="#">
+          Desain Website
+        </a>
+
+        <a href="#">
+          Google Workspace
+        </a>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <h3>
+          Support
+        </h3>
+
+        <a href="#">
+          Panduan Membuat Website
+        </a>
+
+        <a href="#">
+          Konfirmasi Pembayaran
+        </a>
+
+        <a href="#">
+          Pembayaran Online
+        </a>
+
+        <a href="#">
+          Kebijakan Privasi
+        </a>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <h3>
+          Siapa Kami?
+        </h3>
+
+        <a href="About.html">
+          Tentang Kami
+        </a>
+
+        <a href="kontak.html">
+          Hubungi Kami
+        </a>
+
+        <a href="#">
+          Facebook
+        </a>
+
+        <a href="#">
+          Instagram
+        </a>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <h3>
+          Afiliasi
+        </h3>
+
+        <a href="#">
+          Clicknext Co., Ltd.
+        </a>
+
+        <a href="#">
+          SMS Marketing Service
+        </a>
+
+        <a href="#">
+          Broadcasting Service
+        </a>
+
+        <a href="#">
+          VPS Hosting Service
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="footer-brand">
+
+        <img
+          src="logo.webp"
+          alt="Logo Webby Jasa"
+        >
+
+        <div>
+
+          <strong>
+            Webby Jasa
+          </strong>
+
+          <p>
+            Bisnis Jasa Pengembangan Web
+          </p>
+
+          <p>
+            +62 889-5204-312
+          </p>
+
+          <p>
+            Jam Operasional: 09.00 - 18.00
+          </p>
+
+        </div>
+
       </div>
 
     </div>
 
-    <button class="slider-btn next" onclick="geserSlide(1)">
-      ❯
-    </button>
+  </footer>
 
-  </div>
 
-</section>
-<footer class="footer">
-  <div class="footer-container">
+  <!-- =========================
+       WHATSAPP
+  ========================= -->
 
-    <div class="footer-col">
-      <h3>Layanan Webby</h3>
-      <a href="#">Website Gratis</a>
-      <a href="#">Paket Website</a>
-      <a href="#">Desain Website</a>
-      <a href="#">Google Workspace</a>
-    </div>
+  <a
+    class="whatsapp"
+    href="https://wa.me/628895204312"
+    target="_blank"
+    aria-label="WhatsApp"
+  >
 
-    <div class="footer-col">
-      <h3>Support</h3>
-      <a href="#">Panduan Membuat Website</a>
-      <a href="#">Konfirmasi Pembayaran</a>
-      <a href="#">Pembayaran Online</a>
-      <a href="#">Kebijakan Privasi</a>
-    </div>
+    <svg viewBox="0 0 24 24">
 
-    <div class="footer-col">
-      <h3>Siapa Kami?</h3>
-      <a href="#">Tentang Kami</a>
-      <a href="#">Hubungi Kami</a>
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-    </div>
+      <path
+        fill="white"
+        d="M20.52 3.48A11.78 11.78 0 0012.06 0C5.49 0 .13 5.36.13 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.9 11.9 0 005.79 1.48h.01c6.57 0 11.93-5.36 11.93-11.93 0-3.19-1.24-6.19-3.48-8.43zM12.07 21.6a9.7 9.7 0 01-4.94-1.35l-.35-.21-3.72.97.99-3.63-.23-.37a9.67 9.67 0 01-1.49-5.15c0-5.35 4.36-9.71 9.72-9.71 2.6 0 5.05 1.01 6.89 2.85a9.66 9.66 0 012.84 6.86c0 5.36-4.36 9.74-9.71 9.74zm5.33-7.27c-.29-.14-1.72-.85-1.99-.95-.27-.1-.46-.14-.66.14-.19.29-.76.95-.93 1.14-.17.19-.34.21-.63.07-.29-.14-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.58.13-.13.29-.34.44-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.6-.91-2.19-.24-.57-.49-.49-.66-.5h-.57c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.16 3.01c.14.19 2 3.06 4.85 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.13-.26-.2-.55-.34z"
+      />
 
-    <div class="footer-col">
-      <h3>Afiliasi</h3>
-      <a href="#">Clicknext Co., Ltd.</a>
-      <a href="#">SMS Marketing Service</a>
-      <a href="#">Broadcasting Service</a>
-      <a href="#">VPS Hosting Service</a>
-    </div>
+    </svg>
 
-  </div>
+  </a>
 
-  <div class="footer-bottom">
-    <div class="footer-brand">
-      <img src="logo.webp" alt="logo">
-      <div>
-        <strong>Webby Jasa</strong>
-        <p>Bisnis Jasa Pengembangan Web</p>
-        <p>+62 889-5204-312</p>
-        <p>Jam Operasional : 09.00 - 18.00</p>
-      </div>
-    </div>
-  </div>
-</footer>
 
-<a class="whatsapp" href="https://wa.me/628895204312" target="_blank">
-    <svg viewBox="0 0 24 24" width="32" height="32">
-    <path fill="white" d="M20.52 3.48A11.78 11.78 0 0012.06 0C5.49 0 .13 5.36.13 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.9 11.9 0 005.79 1.48h.01c6.57 0 11.93-5.36 11.93-11.93 0-3.19-1.24-6.19-3.48-8.43zM12.07 21.6a9.7 9.7 0 01-4.94-1.35l-.35-.21-3.72.97.99-3.63-.23-.37a9.67 9.67 0 01-1.49-5.15c0-5.35 4.36-9.71 9.72-9.71 2.6 0 5.05 1.01 6.89 2.85a9.66 9.66 0 012.84 6.86c0 5.36-4.36 9.74-9.71 9.74zm5.33-7.27c-.29-.14-1.72-.85-1.99-.95-.27-.1-.46-.14-.66.14-.19.29-.76.95-.93 1.14-.17.19-.34.21-.63.07-.29-.14-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.58.13-.13.29-.34.44-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.6-.91-2.19-.24-.57-.49-.49-.66-.5h-.57c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.16 3.01c.14.19 2 3.06 4.85 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.13-.26-.2-.55-.34z"/>
-  </svg>
-</a>
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
-<script>
-const toggle = document.getElementById('menuToggle');
-const nav = document.getElementById('navLinks');
+  <script>
 
-toggle.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
-</script>
+    /* MOBILE MENU */
 
-<script>
+    const toggle =
+      document.getElementById("menuToggle");
 
-let slideSekarang = 0;
+    const nav =
+      document.getElementById("navLinks");
 
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
+    toggle.addEventListener("click", function () {
 
-function geserSlide(arah) {
+      nav.classList.toggle("active");
 
-    slideSekarang += arah;
-
-    if (slideSekarang >= slides.length) {
-        slideSekarang = 0;
-    }
-
-    if (slideSekarang < 0) {
-        slideSekarang = slides.length - 1;
-    }
-
-    slider.scrollTo({
-        left: slider.clientWidth * slideSekarang,
-        behavior: 'smooth'
     });
 
-}
 
-</script>
+    /* PORTFOLIO SLIDER */
+
+    const slides =
+      document.querySelectorAll(".slide");
+
+    const slidesContainer =
+      document.querySelector(".slides");
+
+    const dotsContainer =
+      document.querySelector(".slider-dots");
+
+    let slideSekarang = 0;
+
+
+    /* BUAT DOT */
+
+    slides.forEach(function (_, index) {
+
+      const dot =
+        document.createElement("span");
+
+      if (index === 0) {
+
+        dot.classList.add("active");
+
+      }
+
+      dot.addEventListener("click", function () {
+
+        slideSekarang = index;
+
+        tampilkanSlide();
+
+      });
+
+      dotsContainer.appendChild(dot);
+
+    });
+
+
+    const dots =
+      document.querySelectorAll(".slider-dots span");
+
+
+    /* TAMPILKAN SLIDE */
+
+    function tampilkanSlide() {
+
+      slidesContainer.style.transform =
+        `translateX(-${slideSekarang * 100}%)`;
+
+      dots.forEach(function (dot) {
+
+        dot.classList.remove("active");
+
+      });
+
+      dots[slideSekarang].classList.add("active");
+
+    }
+
+
+    /* TOMBOL NEXT / PREV */
+
+    function geserSlide(arah) {
+
+      slideSekarang += arah;
+
+      if (slideSekarang >= slides.length) {
+
+        slideSekarang = 0;
+
+      }
+
+      if (slideSekarang < 0) {
+
+        slideSekarang =
+          slides.length - 1;
+
+      }
+
+      tampilkanSlide();
+
+    }
+
+
+    /* AUTO SLIDER */
+
+    setInterval(function () {
+
+      geserSlide(1);
+
+    }, 4000);
+
+  </script>
+
 
 </body>
 </html>
