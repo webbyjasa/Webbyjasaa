@@ -425,3 +425,87 @@ nav{
     text-align: center;
   }
 }
+
+
+/* =========================
+   PORTFOLIO SLIDER
+========================= */
+
+.slider-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    min-width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+/* TOMBOL GESER */
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 5;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background: #007bff;
+}
+
+.slider-btn.prev {
+    left: 15px;
+}
+
+.slider-btn.next {
+    right: 15px;
+}
+
+/* HP */
+
+@media (max-width: 768px) {
+
+    .slider-wrapper {
+        max-width: 100%;
+    }
+
+    .slide img {
+        height: 300px;
+    }
+
+    .slider-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+    }
+
+}
