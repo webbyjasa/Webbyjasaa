@@ -135,18 +135,33 @@
 <section class="portfolio">
   <h2>Contoh Website</h2>
 
-  <div class="slider">
-    <div class="slide">
-      <img src="profile.jpg">
+  <div class="slider-wrapper">
+
+    <button class="slider-btn prev" onclick="geserSlide(-1)">
+      ❮
+    </button>
+
+    <div class="slider">
+
+      <div class="slide">
+        <img src="profile.jpg" alt="Contoh Website 1">
+      </div>
+
+      <div class="slide">
+        <img src="gambar.jpg" alt="Contoh Website 2">
+      </div>
+
+      <div class="slide">
+        <img src="logo.jpg" alt="Contoh Website 3">
+      </div>
+
     </div>
-    <div class="slide">
-      <img src="gambar.jpg">
-    </div>
-    <div class="slide">
-      <img src="logo.jpg">
-    </div>
-    
-  
+
+    <button class="slider-btn next" onclick="geserSlide(1)">
+      ❯
+    </button>
+
+  </div>
 
 </section>
 <footer class="footer">
@@ -212,6 +227,34 @@ const nav = document.getElementById('navLinks');
 toggle.addEventListener('click', () => {
   nav.classList.toggle('active');
 });
+</script>
+
+<script>
+
+let slideSekarang = 0;
+
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+
+function geserSlide(arah) {
+
+    slideSekarang += arah;
+
+    if (slideSekarang >= slides.length) {
+        slideSekarang = 0;
+    }
+
+    if (slideSekarang < 0) {
+        slideSekarang = slides.length - 1;
+    }
+
+    slider.scrollTo({
+        left: slider.clientWidth * slideSekarang,
+        behavior: 'smooth'
+    });
+
+}
+
 </script>
 
 </body>
